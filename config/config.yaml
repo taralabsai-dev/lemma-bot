@@ -1,0 +1,81 @@
+trading:
+  initial_capital: 10000  # Starting capital in USD
+  max_positions: 8        # Maximum number of positions to hold
+  rebalance_frequency: weekly  # Options: daily, weekly, monthly
+  
+  # Position sizing
+  position_sizing:
+    method: equal_weight  # Options: equal_weight, risk_parity, kelly_criterion
+    max_position_size: 0.25  # Maximum 25% of portfolio in single position
+    
+  # Risk management
+  risk_management:
+    stop_loss: 0.05  # 5% stop loss
+    take_profit: 0.20  # 20% take profit
+    max_drawdown: 0.15  # Maximum 15% portfolio drawdown
+    
+  # Trading hours (Eastern Time)
+  trading_hours:
+    start: "09:30"
+    end: "16:00"
+    
+stocks:
+  # Tech stocks universe
+  universe:
+    - AAPL  # Apple
+    - MSFT  # Microsoft
+    - GOOGL # Alphabet
+    - AMZN  # Amazon
+    - META  # Meta
+    - NVDA  # Nvidia
+    - TSLA  # Tesla
+    - AMD   # AMD
+    - INTC  # Intel
+    - CRM   # Salesforce
+    - ORCL  # Oracle
+    - ADBE  # Adobe
+    - NFLX  # Netflix
+    - PYPL  # PayPal
+    - SQ    # Block (Square)
+    - SHOP  # Shopify
+    
+  # Minimum volume filter (shares per day)
+  min_volume: 1000000
+  
+  # Price range filter
+  min_price: 10
+  max_price: 10000
+  
+analysis:
+  # Technical indicators
+  technical:
+    sma_periods: [20, 50, 200]
+    ema_periods: [12, 26]
+    rsi_period: 14
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+    
+  # AI model settings
+  ai_model:
+    name: "llama3.2"  # Ollama model to use
+    temperature: 0.7
+    max_tokens: 1000
+    
+  # Backtesting
+  backtest:
+    start_date: "2023-01-01"
+    end_date: "2024-01-01"
+    commission: 0.001  # 0.1% commission per trade
+    
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR
+  file_rotation:
+    max_bytes: 10485760  # 10MB
+    backup_count: 5
+    
+data:
+  # Data source settings
+  update_frequency: "1h"  # Update market data every hour
+  history_days: 365  # Days of historical data to fetch
+  cache_expiry: 3600  # Cache expiry in seconds
